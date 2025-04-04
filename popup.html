@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Özeti (Groq)</title>
+  <meta charset="UTF-8">
+  <style>
+    body { width: 380px; font-family: sans-serif; padding: 10px; max-height: 580px; overflow-y: auto; }
+    h3 { margin-top: 0; text-align: center; margin-bottom: 15px;}
+    #controls {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+    #full-summary-section {
+        border: 1px solid #eee;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        background-color: #fdfdfd;
+    }
+    #summary-content {
+      margin-top: 5px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      height: 400px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 8px;
+      background-color: #f0f0f0;
+      font-size: 0.95em;
+      color: black;
+    }
+    #status { font-style: italic; color: gray; margin-top: 5px; font-size: 0.9em; min-height: 1.2em; }
+    #loading {
+      display: none;
+      text-align: center;
+      padding: 10px;
+      font-style: italic;
+      color: #555;
+       font-size: 0.9em;
+    }
+     #loading::before { content: "⏳"; display: inline-block; margin-right: 4px; font-size: 1em;}
+    button { padding: 8px 10px; cursor: pointer; flex-grow: 1; }
+    .error-text { color: red; font-weight: bold; margin-top: 5px; font-size: 0.9em;}
+    /* Ayraç stilini koruyalım, birleştirilmiş özette kullanılabilir */
+    .summary-part-separator {
+        font-weight: bold;
+        color: #444;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        border-bottom: 1px dashed #ccc;
+        padding-bottom: 3px;
+    }
+  </style>
+</head>
+<body>
+  <h3>YouTube Özetleyici & Transkript</h3>
+
+  <div id="full-summary-section">
+    <div id="controls">
+        <button id="getSummaryBtn">Tam Özeti Getir</button>
+        <button id="showTranscriptBtn">Sadece Transkripti Göster</button>
+    </div>
+    <div id="loading">İşleniyor...</div>
+    <div id="status">İşlem seçin...</div>
+    <div id="summary-content">Henüz bir işlem yapılmadı.</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
